@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+        mqtt_broker:
+            extends:
+                file: mqtt_broker/app.yml
+                service: app
+            networks:
+                internal:
+                    aliases:
+                        - mqtt.docker.local
+            logging:
+                    driver: syslog
+                    options:
+                            tag: docker-mqtt-broker
+            restart: unless-stopped
+
+networks:
+        internal:
