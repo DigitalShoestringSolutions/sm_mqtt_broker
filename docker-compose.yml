@@ -1,6 +1,5 @@
-version: '2'
-
 services:
+
         mqtt_broker:
             extends:
                 file: mqtt_broker/app.yml
@@ -14,6 +13,3 @@ services:
                     options:
                             tag: docker-mqtt-broker
             restart: unless-stopped
-
-networks:
-        internal:
