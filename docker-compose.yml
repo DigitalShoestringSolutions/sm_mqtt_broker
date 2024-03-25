@@ -1,9 +1,11 @@
 services:
-
         mqtt_broker:
-            extends:
-                file: mqtt_broker/app.yml
-                service: app
+            image: eclipse-mosquitto:2.0
+            volumes:
+                - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+            ports:
+                - "1883:1883"
+                - "9001:9001"
             networks:
                 internal:
                     aliases:
